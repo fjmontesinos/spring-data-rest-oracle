@@ -9,8 +9,8 @@ public class Parametro {
     private long id;
     private String codigo;
     private String nombre;
-    private long activo;
-    private long precio;
+    private int activo;
+    private double precio;
     private Set<Perfil> perfiles;
 
     @Id
@@ -47,21 +47,21 @@ public class Parametro {
 
     @Basic
     @Column(name = "ACTIVO")
-    public long getActivo() {
+    public int getActivo() {
         return activo;
     }
 
-    public void setActivo(long activo) {
+    public void setActivo(int activo) {
         this.activo = activo;
     }
 
     @Basic
     @Column(name = "PRECIO")
-    public long getPrecio() {
+    public double getPrecio() {
         return precio;
     }
 
-    public void setPrecio(long precio) {
+    public void setPrecio(double precio) {
         this.precio = precio;
     }
 
@@ -87,7 +87,7 @@ public class Parametro {
         result = 31 * result + (codigo != null ? codigo.hashCode() : 0);
         result = 31 * result + (nombre != null ? nombre.hashCode() : 0);
         result = 31 * result + (int) (activo ^ (activo >>> 32));
-        result = 31 * result + (int) (precio ^ (precio >>> 32));
+        //result = 31 * result + (int) (precio ^ (precio >>> 32));
         return result;
     }
 
