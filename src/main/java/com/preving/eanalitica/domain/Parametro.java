@@ -12,6 +12,7 @@ public class Parametro {
     private int activo;
     private double precio;
     private Set<Perfil> perfiles;
+    private Capitulo capitulo;
 
     @Id
     @Column(name = "ID")
@@ -99,5 +100,15 @@ public class Parametro {
 
     public void setPerfiles(Set<Perfil> perfiles) {
         this.perfiles = perfiles;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "CAPITULO_ID", referencedColumnName = "ID")
+    public Capitulo getCapitulo() {
+        return capitulo;
+    }
+
+    public void setCapitulo(Capitulo capitulo) {
+        this.capitulo = capitulo;
     }
 }
